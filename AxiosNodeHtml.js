@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/add-book', async (req, res) => {
+app.get('/book/:id', async (req, res) => {
     try{
         const response = await axios.get(base_url + '/books/' + req.params.id);
         res.render('book', {book: response.data});
