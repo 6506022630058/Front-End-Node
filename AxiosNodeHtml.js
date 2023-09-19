@@ -86,6 +86,6 @@ app.get("/delete/:id", async (req, res) => {
     }
 });
 
-app.listen(5000, () => {
-    console.log('Listening on port 5000');
+app.listen(80, () => {
+    console.log('Listening on port 80');
 });
