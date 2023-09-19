@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 
 // const base_url = 'http://localhost:3000';
-const base_url = 'https://node50125-jsapp.proen.app.ruk-com.cloud/';
+const base_url = 'https://node50125-jsapp.proen.app.ruk-com.cloud';
 
 
 app.set('view engine', 'ejs');
@@ -86,6 +86,6 @@ app.get("/delete/:id", async (req, res) => {
     }
 });
 
-app.listen(80, () => {
-    console.log('Listening on port 80');
+app.listen(5000, () => {
+    console.log('Listening on port 5000');
 });
