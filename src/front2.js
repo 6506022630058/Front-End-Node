@@ -1,0 +1,95 @@
+
+
+
+const express = require('express');
+const axios = require('axios');
+const app = express();
+const bodyParser = require('body-parser');
+
+
+
+const base_url = 'http://localhost:3000';
+// const base_url = 'http://node50125-jsapp.proen.app.ruk-com.cloud';
+
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(__dirname + '/public'));
+
+app.get("/", (req, res) => {
+    res.render("home");
+});
+
+//<!-------------------------------------------------------------!>//
+
+app.get('/rooms', async (req, res) => {
+    try{
+        const response = await axios.get(base_url + '/rooms');
+        res.render('rooms', {rooms: response.data});
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.get('/room/:id', async (req, res) => {
+    try{
+        const response = await axios.get(base_url + '/rooms/' + req.params.id);
+        res.render('room', {room: response.data});
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.get("/create1", (req, res) => {
+    res.render("create1");
+});
+
+app.post("/create1", async (req, res) => {
+    try{
+        const data = {name: req.body.name};
+        await axios.post(base_url + '/rooms', data);
+        res.redirect('/');
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.get("/update1/:id", async (req, res) => {
+    try{
+        const response = await axios.get(
+        base_url + '/rooms/' + req.params.id);
+        res.render("update1", {room: response.data});
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.post("/update1/:id", async (req, res) => {
+    try{
+        const data = {name: req.body.name};
+        await axios.put(base_url + '/rooms/' + req.params.id, data);
+        res.redirect('/');
+    } catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.get("/delete1/:id", async (req, res) => {
+    try{
+        await axios.delete(base_url + '/rooms/' + req.params.id);
+        res.redirect('/');
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
+app.listen(4000, () => {
+    console.log('Listening on port 4000');
+});
