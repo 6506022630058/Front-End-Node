@@ -76,7 +76,7 @@ app.post("/update1/:id", async (req, res) => {
     }
 });
 
-app.get("/delete/:id", async (req, res) => {
+app.get("/delete1/:id", async (req, res) => {
     try{
         await axios.delete(base_url + '/rooms/' + req.params.id);
         res.redirect('/');
