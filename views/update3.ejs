@@ -8,10 +8,10 @@
     <h1>Update Rent</h1>
     <form method="post" action="/update3/<%= rent.id %>">
             <label for="r_id">Room-ID:</label>
-            <input type="number" id="r_id" name="r_id">
+            <input type="number" id="r_id" name="r_id" value="<%= rent.r_id %>">
             <br>
             <label for="p_id">Person-ID:</label>
-            <input type="number" id="p_id" name="p_id">
+            <input type="number" id="p_id" name="p_id" value="<%= rent.p_id %>">
             <br>
             <input type="submit" value="Update">
     </form>
