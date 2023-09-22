@@ -1,0 +1,15 @@
+<!-- book.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rent</title>
+</head>
+<body>
+    <p>ID: <%= rent.id %></p>
+    <p>Room-ID: <%= rent.r_id %></p>
+    <p>Person-ID: <%= rent.p_id %></p>
+    <a href="/update3/<%= rent.id %>">Edit</a>
+    <a href="/delete3/<%= rent.id %>">Delete</a>
+    <a href="/renting">Back to List</a>
+</body>
+</html>
