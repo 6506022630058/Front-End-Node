@@ -228,6 +228,18 @@ app.get("/delete3/:id", async (req, res) => {
     }
 });
 
+//<!-------------------------------------------------------------!>//
+
+app.get('/summary', async (req, res) => {
+    try{
+        const response = await axios.get(base_url + '/summary');
+        res.render('summary', {summary: response.data});
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error");
+    }
+});
+
 app.listen(4000, () => {
     console.log('Listening on port 4000');
 });
