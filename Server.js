@@ -7,7 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
-
+//1
 
 // const base_url = 'http://localhost:3000';
 const base_url = 'https://node50125-jsapp.proen.app.ruk-com.cloud';
