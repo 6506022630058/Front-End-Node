@@ -9,8 +9,8 @@ const path = require('path');
 
 
 
-const base_url = 'http://localhost:3000';
-// const base_url = 'http://node50125-jsapp.proen.app.ruk-com.cloud';
+// const base_url = 'http://localhost:3000';
+const base_url = 'https://node50125-jsapp.proen.app.ruk-com.cloud';
 
 
 app.set("views",path.join(__dirname,"/public/views"));
